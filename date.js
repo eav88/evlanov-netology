@@ -33,39 +33,33 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
     description: 'Текущая дата',
 })
-
-
 .argv
 
 
-
+if(typeof(argv.d) != "undefined" && argv.d !== null){var dday = argv.d}else{var dday = 0}
+if(typeof(argv.m) != "undefined" && argv.m !== null){var mday = argv.m}else{var mday = 0}
+if(typeof(argv.y) != "undefined" && argv.y !== null){var yday = argv.y}else{var yday = 0}
 
 if(argv.current == true){
-    yDate = new Date().getFullYear()
-    mDate = new Date().getMonth()
-    dDate = new Date().getDate()
-
-    console.log(dDate+'/'+mDate+'/'+yDate)
+    currentDate = new Date()
+    console.log (currentDate.toLocaleDateString())
 }
 
 if(argv.add == true){
-    if(typeof(argv.y) != "undefined" && argv.y !== null){var yDate = new Date().getFullYear()+ argv.y } else {var yDate = new Date().getFullYear()}
-    if(typeof(argv.m) != "undefined" && argv.m !== null){var mDate = new Date().getMonth()+ argv.m } else {var mDate = new Date().getMonth()}
-    if(typeof(argv.d) != "undefined" && argv.d !== null){var dDate = new Date().getDate()+ argv.d } else {var dDate = new Date().getDate()}
 
-    console.log(dDate+'/'+mDate+'/'+yDate)
+    currentDate = new Date()
+    currentDate.setDate(currentDate.getDate()+dday)
+    currentDate.setMonth(currentDate.getMonth()+mday)
+    currentDate.setFullYear(currentDate.getFullYear()+yday)
+
+    console.log (currentDate.toLocaleDateString())
 }
 
 if(argv.sub == true){
-    if(typeof(argv.y) != "undefined" && argv.y !== null){var yDate = new Date().getFullYear()- argv.y } else {var yDate = new Date().getFullYear()}
-    if(typeof(argv.m) != "undefined" && argv.m !== null){var mDate = new Date().getMonth()- argv.m } else {var mDate = new Date().getMonth()}
-    if(typeof(argv.d) != "undefined" && argv.d !== null){var dDate = new Date().getDate()- argv.d } else {var dDate = new Date().getDate()}
+    currentDate = new Date()
+    currentDate.setDate(currentDate.getDate()-dday)
+    currentDate.setMonth(currentDate.getMonth()-mday)
+    currentDate.setFullYear(currentDate.getFullYear()-yday)
 
-    console.log(dDate+'/'+mDate+'/'+yDate)
+    console.log (currentDate.toLocaleDateString())
 }
-
-
-
-
-
-
