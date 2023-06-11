@@ -1,38 +1,16 @@
-// let nodePath = process.argv[0];
-// let appPath = process.argv[1];
-// let name = process.argv[2];
-// let age = process.argv[3];
-// let link = process.argv[4];
+const random_number = Math.floor(Math.random() * 100)
+// console.log("Число: " + random_number)
 
-// console.log("nodePath: " + nodePath);
-// console.log("appPath: " + appPath);
-// console.log("-------------------");
-// console.log("name: " + name);
-// console.log("age: " + age);
-// console.log("link: " + link);
-// console.log("---------------");
-
-// const random_number = Math.floor(Math.random() * 100)
-
-// console.log("Я загадал число, попробуй угадать: " + random_number)
-
+console.log("Node: Я загадал число от 1 до 100, отгадай мое число")
 
 const readline = require('node:readline');
 const { stdin: input, stdout: output } = require('node:process');
 
 const rl = readline.createInterface({ input, output });
 
+rl.on('line', function (answer) {
 
-
-rl.question('What is your favorite food? ', (answer) => {
-    console.log(`Oh, so your favorite food is ${answer}`);
-    rl.close();
+    if (answer == random_number) { console.log("Node: число отгадано"); rl.close();}
+    if (answer < random_number) { console.log("Node: Загаднное число больше "+answer) }
+    if (answer > random_number) { console.log("Node: Загаднное число меньше "+answer) }
 });
-
-
-
-
-
-
-
-
