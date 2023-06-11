@@ -38,6 +38,8 @@ const argv = yargs(hideBin(process.argv))
 .argv
 
 
+
+
 if(argv.current == true){
     yDate = new Date().getFullYear()
     mDate = new Date().getMonth()
@@ -61,6 +63,9 @@ if(argv.sub == true){
 
     console.log(dDate+'/'+mDate+'/'+yDate)
 }
+
+
+
 
 
 
