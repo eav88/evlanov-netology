@@ -14,3 +14,6 @@ rl.on('line', function (answer) {
     if (answer < random_number) { console.log("Node: Загаднное число больше "+answer) }
     if (answer > random_number) { console.log("Node: Загаднное число меньше "+answer) }
 });
+
+
+
