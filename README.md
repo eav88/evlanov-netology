@@ -25,3 +25,9 @@
 *Запуск:* 1-4-flip.js
 
 Зупуск консоли с отгадыванием брошенной монеты, запись будет внесена в *1-4-flip-log.txt*
+
+**Задание 1.5 Wether (1.5. Http module. Переменные окружения)**
+
+*Запуск:* npm run weather *Город*
+
+в файле config.js apikey от сервиса: https://weatherstack.com/

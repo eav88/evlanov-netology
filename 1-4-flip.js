@@ -21,11 +21,11 @@ rl.on('line', function (answer) {
     answer = answer.toLowerCase()
     console.log(answer)
     if (answer == coins_result) {
-        fs.appendFile('1-4-flip-log.txt','Дата и время броска: '+result_date.toLocaleDateString() +" - "+result_date.toLocaleTimeString()+' '+result_yes+' '+coins_result+'\n', function (){})
+        fs.appendFile('1-4-flip-log.json','Дата и время броска: '+result_date.toLocaleDateString() +" - "+result_date.toLocaleTimeString()+' '+result_yes+' '+coins_result+'\n', function (){})
         console.log(result_yes); rl.close();
     }
     if (answer != coins_result) { 
-        fs.appendFile('1-4-flip-log.txt','Дата и время броска: '+result_date.toLocaleDateString() +" - "+result_date.toLocaleTimeString()+' '+result_no+' '+coins_result+'\n', function (){})
+        fs.appendFile('1-4-flip-log.json','Дата и время броска: '+result_date.toLocaleDateString() +" - "+result_date.toLocaleTimeString()+' '+result_no+' '+coins_result+'\n', function (){})
         console.log(result_no);rl.close(); 
     }
 });
