@@ -65,16 +65,25 @@ router.get('/api/books/:id/download', function(req, res) {
     const idx = books.findIndex(el => el.id === id)
 
     if(idx !== -1){
-        // res.json(books[idx])
-        console.log('routes - Скачать txt книги по ID', books[idx].fileBook)
-        res.send('<p>Книга с id: '+books[idx].id+' найдена </p><a href="http://localhost:3000/'+books[idx].fileBook+'">Demo books</a>')
+        res.download(books[idx].fileBook, books[idx].title+'.txt')
+        // req.json('TEST text')
+        console.log('routes - Получить книгу по ID | скачена')
 
     } else {
         res.status(404)
-        res.send('<p>запрашиваемый файл отсутвует, предлагаем скачать демо версию.</p><a href="http://localhost:3000/files/bookdemo.txt">Demo books</a>')
-
+        res.json('Запрашиваемый файл отсутвует')
     }
 });
+
+// TEST
+router.get('/test/', function (req, res) {
+    res.download('files/bookdemo.txt','BLABLABLA.txt', function (error) {
+        console.log("Error : ", error)
+    });
+})
+
+
+
 
 // POST создать книгу
 router.post('/api/books',fileMulter.single('bookfilekey'), (req, res) => {
