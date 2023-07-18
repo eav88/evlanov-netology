@@ -18,7 +18,7 @@ class book {
 }
 
 const books = [
-    new book('001', 'books1','Описание книги 1','Автор этой книги','Да, в избранном','Обложка тут','Обложка этой книги','files\\1689701843236-newbook.txt'),
+    new book('001', 'books1','Описание книги 1','Автор этой книги','Да, в избранном','Обложка тут','Обложка этой книги','files\\newbook.txt'),
     new book(),
 ];
 
@@ -65,14 +65,13 @@ router.get('/api/books/:id/download', function(req, res) {
     const idx = books.findIndex(el => el.id === id)
 
     if(idx !== -1){
-        res.json(books[idx])
-
-        console.log('routes - Скачать txt книги по ID')
-
+        // res.json(books[idx])
+        console.log('routes - Скачать txt книги по ID', books[idx].fileBook)
+        res.send('<p>Книга с id: '+books[idx].id+' найдена </p><a href="http://localhost:3000/'+books[idx].fileBook+'">Demo books</a>')
 
     } else {
         res.status(404)
-        res.send('<a href="http://localhost:3000/files/bookdemo.txt">Demo books</a>')
+        res.send('<p>запрашиваемый файл отсутвует, предлагаем скачать демо версию.</p><a href="http://localhost:3000/files/bookdemo.txt">Demo books</a>')
 
     }
 });
