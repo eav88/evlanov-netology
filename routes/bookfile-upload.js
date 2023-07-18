@@ -12,4 +12,17 @@ router.post('/upload',
         res.json()
     })
 
+
+router.post('/uptest', 
+fileMulter.single('bookfilekey'),
+(req, res) => {
+    if(req.file){
+        const {path} = req.file
+        res.json(req.file)
+        
+    }
+    res.json()
+})
+
+    
 module.exports = router
