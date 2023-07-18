@@ -2,6 +2,9 @@
 
 **Репозиторий для сдачи домашней работы**
 
+**Ветка Main**
+---
+
 Группа *NDJS-23*
 
 **Задание 1.2 date (1.2 Аргументы командной строки и console)**
@@ -31,3 +34,27 @@
 *Запуск:* npm run weather *Город*
 
 в файле config.js apikey от сервиса: https://weatherstack.com/
+
+
+**Ветка library**
+---
+
+**Домашнее задание к занятию «2.1. Express»**
+
+*Запуск:* npm run library
+
+
+**Ветка library-2-2**
+---
+
+**Домашнее задание к занятию «2.2. Middleware. Паттерн "цепочка обязанностей"»**
+
+*Запуск:* npm run library
+
+URL book: get localhost:3000/files/newbook.txt
+
+**key:** bookfilekey
+
+*URL upload single:* post localhost:3000/bookfile/upload
+*URL create book:* post localhost:3000/api/books
+*URL download txt book file:* get localhost:3000/api/books/:id/download
