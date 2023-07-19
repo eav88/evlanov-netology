@@ -104,12 +104,6 @@ app.get('/bootstrap/fonts/bootstrap-icons.woff2', function (req, res) {
 
 app.use('/files', express.static(__dirname+'files'))
 
-
-// app.get('/',function (req,res) {
-//     res.status(404)
-//     res.json('404 | страница не найдена')
-// })
-
 app.use(function(req, res, next){
     res.redirect('error.html')
     // res.status(404)
