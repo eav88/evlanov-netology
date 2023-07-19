@@ -1,0 +1,77 @@
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <nav class="nav bg-secondary">
+        <a class="nav-link link-light" href="./index.html"><i class="bi bi-book"></i> Библиотека</a>
+        <a class="nav-link link-dark" href="./create.html">Добавить</a>
+        <a class="nav-link link-light" href="./update.html">Обновить</a>
+        <a class="nav-link link-light" href="./view.html">Просмотреть</a>
+        <a class="nav-link link-light" href="./error.html">Ошибка</a>
+    </nav>
+
+    <div class="container-fluid bg-dark-subtle">
+        <div class="row">
+            <div class="col-md-12 p-5">
+                <h1 class="display-3">Добавить книгу <i class="bi bi-journal-plus"></i></h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 px-2">
+                <div class="shadow rounded p-5">
+                    <form>
+                        <div class="mb-3">
+                            <label for="titleBook" class="form-label">Название книги</label>
+                            <input type="text" class="form-control" id="titleBook" placeholder="Преступление н наказание">
+                        </div>
+                        <div class="mb-3">
+                            <label for="authorsBook" class="form-label">Автор</label>
+                            <input type="text" class="form-control" id="authorsBook" placeholder="Ф.М. Достоевский">
+                        </div>
+                        <div class="mb-3">
+                            <label for="favoriteBook" class="form-label">Избранное</label>
+                            <select class="form-select form-control" id="favoriteBook">
+                                <option value="false">Нет</option>
+                                <option value="true">Да</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileCoverBook" class="form-label">Изображение обложки 600 x 300 px (ссылка)</label>
+                            <input type="url" class="form-control" id="fileCoverBook" placeholder="https://dummyimage.com/600x300/555/fff">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileNameBook" class="form-label">Издатель</label>
+                            <input type="text" class="form-control" id="fileNameBook" placeholder="Печатный дом">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descriptionBook" class="form-label">Описание</label>
+                            <textarea class="form-control" id="descriptionBook" rows="3"
+                                placeholder="Мрачная психологическая драма Ф.М. Достоевского."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileBookBook" class="form-label">Файл электронной книги</label>
+                            <input type="file" class="form-control" id="fileBookBook" placeholder="">
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary w-50">Обновить</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+</body>
+</html>
