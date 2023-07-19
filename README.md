@@ -65,3 +65,14 @@ URL book: get localhost:3000/files/newbook.txt
 
 
 *URL download txt book file:* get localhost:3000/api/books/:id/download
+
+
+**Ветка library-router-ejs**
+---
+
+*Запуск:* npm run library
+
+*Посмотреть шаблон* npm run tmp
+
+
+
