@@ -1,0 +1,23 @@
+[ 
+    {
+        "id": "bc4970c2-68c1-45c4-bdf8-aef93fd4d2bd",
+        "title":"451 градус по Фаренгейту",
+        "description":"Будущее, где книги запрещены, пожарник Монтэг ищет свет в мире без слов. Рей Брэдбери, классика дистопии",
+        "authors": "Рэй Брэдбери",
+        "favorite": "true",
+        "fileCover": "https://readrate.com/img/pictures/book/292/29286/29286/w240h400-cc0528ab.jpg",
+        "fileName": "ЛитРес",
+        "fileBook": "http://localhost:3000/files/451.txt"
+
+    },
+    {
+        "id": "157b0325-2715-4ed0-8061-e4caf3a783aa",
+        "title":"Маленький принц",
+        "description":"Путешествия маленького принца, уроки о жизни. Антуан де Сент-Экзюпери, волшебная сказка.",
+        "authors": "Антуан де Сент-Экзюпери",
+        "favorite": "false",
+        "fileCover": "https://readrate.com/img/pictures/book/293/29327/29327/w240h400-7e9028bd.jpg",
+        "fileName": "Лабиринт",
+        "fileBook": "http://localhost:3000/files/litleprince.txt"
+    }
+]
