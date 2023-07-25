@@ -11,7 +11,8 @@
 <body>
 
     <nav class="nav bg-secondary">
-        <a class="nav-link link-dark" href="./index.html"><i class="bi bi-book"></i> Библиотека</a>
+        <a class="nav-link link-dark" href="./index.html"><i class="bi bi-house"></i> Главная</a>
+        <a class="nav-link link-light" href="./catalog.html"><i class="bi bi-book"></i> Библиотека</a>
         <a class="nav-link link-light" href="./create.html">Добавить</a>
         <a class="nav-link link-light" href="./update.html">Обновить</a>
         <a class="nav-link link-light" href="./view.html">Просмотреть</a>
@@ -21,97 +22,78 @@
     <div class="container-fluid bg-dark-subtle">
         <div class="row">
             <div class="col-md-12 p-5">
-                <h1 class="display-3">Библиотека <i class="bi bi-book"></i></h1>
+                <h1 class="display-3">Welcome</h1>
             </div>
         </div>
     </div>
-    <!--  title, description, authors, favorite, fileCover,fileName, fileBook -->
-
-    <!-- есть книги -->
-    <div class="container my-5">
-        <div class="row">
-            
-            <div class="col-md-3 my-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Добавить</h5>
-                      <p class="card-text">Пополнить библиотеку</p>
-                        <button type="button" class="btn btn-lg btn-secondary w-100"><i class="bi bi-plus"></i></button>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="col-md-3 my-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Тень любви: Тайны прошлого</h5>
-                      <p class="card-text">GPT chatbot</p>
-                      <hr>
-                      <p class="card-text">Любовь и судьба переплетают жизни, раскрывая тайны прошлого. Загадочный роман о судьбе и совпадениях.</p>
-                      <div class="btn-group w-100" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="col-md-3 my-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Космическая симфония: Встреча с Иным</h5>
-                      <p class="card-text">GPT chatbot</p>
-                      <hr>
-                      <p class="card-text">На краю вселенной космонавты сталкиваются с иным разумом. Новая грань научной фантастики, полет в неизведанное.</p>
-                      <div class="btn-group w-100" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-
-            <div class="col-md-3 my-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Паутина судьбы</h5>
-                      <p class="card-text">GPT chatbot</p>
-                      <hr>
-                      <p class="card-text">В захватывающей истории о силе судьбы и роковых переплетениях жизней, герои попадают в паутину тайн и секретов, которая изменит их судьбы навсегда.</p>
-                      <div class="btn-group w-100" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></button>
-                        <button type="button" class="btn btn-secondary"><i class="bi bi-trash"></i></button>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-
-
-        </div>
-    </div>
-
-
-    <!-- нет книг -->
 
     <div class="container my-5">
         <div class="row">
-            <div class="col-md-3 my-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Добавить</h5>
-                      <p class="card-text">Пополнить библиотеку</p>
-                        <button type="button" class="btn btn-lg btn-secondary w-100"><i class="bi bi-plus"></i></button>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-md-9">
-                <h2 class="display-4">Книг нет!</h2>
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Наименование</th>
+                        <th scope="col">Описание</th>
+                        <th scope="col">По умоланию</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>id</td>
+                        <td>id генерируется uuid</td>
+                        <td>random</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>title</td>
+                        <td>Название книги</td>
+                        <td>title Book</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>description</td>
+                        <td>Описание</td>
+                        <td>description Book</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">4</th>
+                        <td>authors</td>
+                        <td>Автор</td>
+                        <td>authors Book</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">5</th>
+                        <td>favorite</td>
+                        <td>Избранное</td>
+                        <td>favorite Book</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">6</th>
+                        <td>fileCover</td>
+                        <td>Изображение обложки</td>
+                        <td>fileCover Book</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">7</th>
+                        <td>fileName</td>
+                        <td>Издатель</td>
+                        <td>fileName Book</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">8</th>
+                        <td>fileBook</td>
+                        <td>Файл электронной книги</td>
+                        <td>fileBook Book</td>
+                      </tr>                 
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
+
 
 
     <script src="bootstrap/bootstrap.bundle.js"></script>

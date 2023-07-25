@@ -77,6 +77,10 @@ app.get('/index.html', function (req, res) {
     res.sendFile(__dirname + '/tmp/index.html');
 })
 
+app.get('/catalog.html', function (req, res) {
+    res.sendFile(__dirname + '/tmp/catalog.html');
+})
+
 app.get('/error.html', function (req, res) {
     res.sendFile(__dirname + '/tmp/error.html');
 })

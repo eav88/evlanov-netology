@@ -43,7 +43,8 @@ node_modules/
 jspm_packages/
 tmp/bootstrap/
 tmp/fonts/
-
+tmpejs/bootstrap/
+tmpejs/fonts/
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
