@@ -15,6 +15,14 @@ app.use('/bootstrap', bootstrapRoute);
 app.use('/', mainRoute);
 app.use('/catalog', catalogRoute);
 
+// Ошибка
+app.get('/404',  function (req,res) {
+    res.render("error", {
+        title: "Ошибка", 
+        iconpage:'bi bi-exclamation-circle',
+    });
+})
+
 app.listen(PORT, function(){
     console.log ('Server started at ','http://localhost:'+PORT, PORT)
 })

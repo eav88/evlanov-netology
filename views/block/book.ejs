@@ -6,12 +6,20 @@
         <p><strong>Автор</strong> <%= catalog.authors %> </p>
         <p><strong>Избранное</strong> <% if (catalog.favorite == "true") { %> <i class="bi bi-bookmark-plus"></i> <%} else { %> <i class="bi bi-patch-minus"></i> <% } %> </p>
         <p><strong>Издатель</strong> <%= catalog.fileName %> </p>
-
-        <%= catalog.fileName %>
         <hr>
         <h4>Oписание</h4>
         <p><%= catalog.description %></p>
-        <a class="display-3 link-secondary" href="<%= catalog.fileBook %>"><i class="bi bi-file-earmark-text"></i></a>
+
+        <% if (catalog.fileBook == "none") { %>
+            
+            <p class="display-3 link-secondary"> Нет файла <%= catalog.fileBook %> </i</p>
+        
+        <%} else { %>
+        
+            <a class="display-3 link-secondary" href="<%= catalog.fileBook %>"><i class="bi bi-file-earmark-text"></i></a>
+        
+        <% } %>
+        
 
         <form id="deleteform" action="/catalog/delete/<%= catalog.id %>" method="POST" class=""></form>
 
