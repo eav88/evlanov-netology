@@ -12,6 +12,8 @@
 1. Удалите образ busybox
 
 ## Консоль
+
+### Загрузите образ busybox последней версии
 PS C:\Users\anton> docker pull busybox:latest
 latest: Pulling from library/busybox
 3f4d90098f5b: Pull complete
@@ -21,6 +23,8 @@ docker.io/library/busybox:latest
 
 What's Next?
   View summary of image vulnerabilities and recommendations → docker scout quickview busybox:latest
+
+### Запустите новый контейнер busybox с командой ping сайта netology.ru, и количеством пингов 7, поименуйте контейнер pinger
 PS C:\Users\anton> docker run -it busybox ping -c 7 netology.ru
 PING netology.ru (172.67.21.207): 56 data bytes
 64 bytes from 172.67.21.207: seq=0 ttl=62 time=5.504 ms
