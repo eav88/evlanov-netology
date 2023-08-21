@@ -36,3 +36,6 @@
 Файлы txt
 
 - Задание 1 - Docker CLI.txt
+- Задание 2 - Environment Variables.txt
+- Задание 3 - Volumes.txt
+- Задание 3 - Volumes (alt) .txt
