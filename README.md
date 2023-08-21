@@ -33,4 +33,6 @@
 в файле config.js apikey от сервиса: https://weatherstack.com/
 
 **Домашнее задание к занятию «2.4 Docker, установка и настройка»**
-Файлы 
+Файлы txt
+
+- Задание 1 - Docker CLI.txt
