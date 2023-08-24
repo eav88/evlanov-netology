@@ -4,9 +4,7 @@
   "description": "Lern express.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "library": "node index.js",
-    "tmp": "node tmp.js"
+    "library": "node index.js"
   },
   "author": "Evlanov",
   "license": "ISC",

@@ -24,7 +24,7 @@ app.get('/404',  function (req,res) {
 })
 
 app.listen(PORT, function(){
-    console.log ('Server started at ','http://localhost:'+PORT, PORT)
+    console.log ('Server started at ','http://localhost', PORT)
 })
 
 
