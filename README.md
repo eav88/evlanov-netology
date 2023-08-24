@@ -10,13 +10,11 @@
 *Каждый документ коллекции books должен содержать следующую структуру данных:*
 
 ```
-
 {
   title: "string",
   description: "string",
   authors: "string"
 }
-
 ```
 
 
