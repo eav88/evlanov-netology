@@ -1,7 +1,9 @@
 <div class="col-md-6 px-2">
     <div class="shadow rounded p-5">
+        <p class="text-secondary text-end"><i class="bi bi-eye"></i> <%= counter %></p>
+
         <h2><%= catalog.title %></h2>
-        <img class="img-fluid my-1" src=" <%= catalog.fileCover %> " alt="<%= catalog.title %>">
+        <img class="img-fluid my-1" src=" <%= catalog.fileCover %> " alt="">
         <hr>
         <p><strong>Автор</strong> <%= catalog.authors %> </p>
         <p><strong>Избранное</strong> <% if (catalog.favorite == "true") { %> <i class="bi bi-bookmark-plus"></i> <%} else { %> <i class="bi bi-patch-minus"></i> <% } %> </p>

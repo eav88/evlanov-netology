@@ -21,4 +21,7 @@ router.get('/fonts/bootstrap-icons.woff2', (req, res) => {
     res.sendFile(__dirname+'/bootstrap/fonts/bootstrap-icons.woff2')
 });
 
+
+
+
 module.exports = router;

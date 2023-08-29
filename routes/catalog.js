@@ -5,12 +5,15 @@ const { title } = require('process')
 const { v4: uuid } = require('uuid')
 const fileMulter = require('../routes/bookfile.js')
 const { Console } = require('console')
+const { isSet } = require('util/types')
 
 
 var bookdeletename = 'none'
 var bookcreatename = 'none'
 var bookcreate = false
 var bookdelete = false
+
+let counter_book_result = 0
 
 
 // Подключение bootstrap
@@ -91,9 +94,12 @@ class book {
     }
 }
 
-// constructor(id = uuid(),title = 'title Book', description = 'description Book', authors = 'authors Book', favorite = 'favorite Book', fileCover = 'fileCover Book', fileName='fileName Book', fileBook='fileBook Book')
-
-
+class bookc {
+    constructor(id,counterb){
+        this.id = id,
+        this.counterb = counterb
+    }
+}
 
 // Массив с книгами
 const catalog = [
@@ -101,33 +107,10 @@ const catalog = [
     new book('157b0325-2715-4ed0-8061-e4caf3a783a1', 'Маленький принц','Путешествия маленького принца, уроки о жизни. Антуан де Сент-Экзюпери, волшебная сказка.','Антуан де Сент-Экзюпери','false','https://readrate.com/img/pictures/book/293/29327/29327/w240h400-7e9028bd.jpg','Лабиринт','files\\litleprince.txt'),
 ];
 
-
-
-// Массив с книгами 2 (тест)
-const catalog2 = [ 
-    {
-        id: "bc4970c2-68c1-45c4-bdf8-aef93fd4d2bd",
-        title:"451 градус по Фаренгейту",
-        description:"Будущее, где книги запрещены, пожарник Монтэг ищет свет в мире без слов. Рей Брэдбери, классика дистопии",
-        authors: "Рэй Брэдбери",
-        favorite: "true",
-        fileCover: "https://readrate.com/img/pictures/book/292/29286/29286/w240h400-cc0528ab.jpg",
-        fileName: "ЛитРес",
-        fileBook: "http://localhost:3000/files/451.txt"
-
-    },
-    {
-        id: "157b0325-2715-4ed0-8061-e4caf3a783aa",
-        title:"Маленький принц",
-        description:"Путешествия маленького принца, уроки о жизни. Антуан де Сент-Экзюпери, волшебная сказка.",
-        authors: "Антуан де Сент-Экзюпери",
-        favorite: "false",
-        fileCover: "https://readrate.com/img/pictures/book/293/29327/29327/w240h400-7e9028bd.jpg",
-        fileName: "Лабиринт",
-        fileBook: "http://localhost:3000/files/litleprince.txt"
-    }
-]
-
+const counter_book = [
+    new bookc('bc4970c2-68c1-45c4-bdf8-aef93fd4d2bd', 10),
+    new bookc('157b0325-2715-4ed0-8061-e4caf3a783a1', 55555),
+];
 
 
 // Вывод всех книг
@@ -164,9 +147,6 @@ router.post('/create',fileMulter.single('fileBook'), function (req, res){
         path='none'
     }
     
-    
-    
-
     const newbook = new book( uuid() ,title, description , authors , favorite , fileCover , fileName , path)
     catalog.push(newbook)
 
@@ -194,11 +174,29 @@ router.get('/:id', function (req, res) {
         res.redirect('/404');
     } 
 
+    // ----- counter -----
+
     if(catalog[idx].fileBook == 'none'){console.log(false, ' txt')}
+
+    const idxcounter = counter_book.findIndex(el => el.id === id)
+
+    if (idxcounter === -1) {
+        console.log('idxcounter is',false)
+        counter_book_result = 0
+    }
+    else{
+        console.log('idxcounter is',true)
+        counter_book_result = counter_book[idxcounter].counterb
+    }
+    
+    // ----- counter -----
+
         
     res.render("view", {
         catalog: catalog[idx],
         title: "Просмотр - "+catalog[idx].title,
+        iconpage: "bi bi-eye",
+        counter: counter_book_result
     });
     
 });
@@ -215,6 +213,8 @@ router.get('/edit/:id', function (req, res) {
     res.render("edit", {
         catalog: catalog[idx],
         title: "Просмотр - "+catalog[idx].title,
+        iconpage:"bi bi-pencil-square",
+        counter: counter_book_result
     });
     
 });
