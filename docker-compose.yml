@@ -1,0 +1,13 @@
+services:
+  redis:
+    image: "redis"
+  counter:
+    image: "evlanov/netology:counter"
+    ports:
+      - "3002:3002"
+    depends_on:
+    - redis
+  library:
+    image: "evlanov/netology:lib"
+    ports:
+     - "80:3000"

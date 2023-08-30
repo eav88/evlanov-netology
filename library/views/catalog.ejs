@@ -1,0 +1,62 @@
+    <%- include('./block/head') %>
+
+    <%- include('./block/menu') %>
+    <%- include('./block/mainblock') %>
+
+    <div class="container my-5">
+        <div class="row">
+
+            <% if ( bookdelete != false) { %>  </p>
+
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Книга удалена!</strong> Название <%= bookdeletename %>.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <% } %>
+            
+            <div class="col-md-3 my-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">Добавить</h5>
+                      <p class="card-text">Пополнить библиотеку</p>
+                        <a href="catalog/create" type="button" class="btn btn-lg btn-secondary w-100"><i class="bi bi-plus"></i></a>
+                    </div>
+                  </div>
+            </div>
+            <% if(catalog.length){ %>
+
+            
+                <% catalog.map((el, idx) => {  %>
+                    <div class="col-md-3 my-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= el.title %></h5>
+                              <p class="card-text"><%= el.authors %></p>
+                              <hr>
+                              <p class="card-text"><%= el.description %></p>
+
+                              <form id="deleteform<%= el.id %>" action="/catalog/delete/<%= el.id %>" method="POST" class=""></form>
+
+                              <div class="btn-group w-100" role="group" aria-label="Basic example">
+                                    <a href="/catalog/<%= el.id %>" type="button" class="btn btn-secondary"><i class="bi bi-eye"></i></a>
+                                    <a href="/catalog/edit/<%= el.id %>" type="button" class="btn btn-secondary"><i class="bi bi-pencil-square"></i></a>
+                                    <button form="deleteform<%= el.id %>" class="btn btn-secondary"><i class="bi bi-trash" aria-hidden="true"></i></button>
+                              </div>
+
+                            </div>
+                          </div>
+                    </div>
+                <% }) %>
+
+            <% } else{ %>  
+                <div class="col-md-9">
+                    <h2 class="display-4">Книг нет!</h2>
+                </div>
+            <% } %>
+        </div>
+    </div>
+   
+    <%- include('./block/footer') %>
+
+
