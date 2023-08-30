@@ -25,7 +25,7 @@ app.get('/404',  function (req,res) {
 })
 
 app.listen(PORT, function(){
-    console.log ('Server started at ','http://localhost', PORT)
+    console.log ('Library work at ','http://localhost')
 })
 
 

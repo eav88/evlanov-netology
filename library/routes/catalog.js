@@ -13,9 +13,6 @@ var bookcreatename = 'none'
 var bookcreate = false
 var bookdelete = false
 
-let counter_book_result = 0
-
-
 // Подключение bootstrap
 router.get('/bootstrap/bootstrap.css', (req, res) => {
     res.sendFile(__dirname+'/bootstrap/bootstrap.css')
@@ -165,46 +162,65 @@ fileMulter.single('bookfilekey'),
     res.json()
 })
 
-// ------------------------------------------
-
-// Redis
-const redis = require('redis')
-
-//http://localhost:6379
-const REDIS_URL = 'redis://redis:6379';
-const client = redis.createClient({url: REDIS_URL});
-
-(async function () {
-    await client.connect()
-})()
-
-// -----------------------------------------
 
 // Получиит информацию о книге по id
-router.get('/:bookId',async function (req, res) {
-    const {bookId} = req.params
-    const idx = catalog.findIndex(el => el.id === bookId)
+router.get('/:id', async function (req, res) {
+
+    const {id} = req.params
+    const idx = catalog.findIndex(el => el.id === id)
 
     if (idx === -1) {
         res.redirect('/404');
     }
 
-    try {
-        const cnt = await client.incr(bookId)
-        if(cnt ==""){counter_book_result = 0}else{counter_book_result = cnt}
+    // Просмотр счетчика
+    //--------------------------------------------------
+    const http = require('http')
+    const url = `http://counter:3002/counter/${id}`;
 
-        res.render("view", {
-            catalog: catalog[idx],
-            title: "Просмотр - "+catalog[idx].title,
-            iconpage: "bi bi-eye",
-            counter: counter_book_result
+    const counter_get = await new Promise((resolve, reject) => {
+        http.get(url, (res) => {
+            let rowData = '';
+            res.on('data', (chunk) => rowData += chunk);
+            res.on('end', () => resolve(rowData));
+            res.on('error', reject);
         });
+    });
 
-    } catch (error) {
-        res.json(error)
-    }
+    const parseData = JSON.parse(counter_get);
+    let counter_book_result = parseData.cnt || 0;
+    console.log(counter_book_result);
 
 
+    // Добавить просмотр
+    //--------------------------------------------------
+
+    const options_post = {
+        hostname: 'counter',
+        port: 3002,
+        path: `/counter/${id}/incr`,
+        method: 'POST',
+    };
+
+    await new Promise((resolve, reject) => {
+        const counter_post = http.request(options_post, (res) => {
+            let rowData = '';
+            res.on('data', (chunk) => rowData += chunk);
+            res.on('end', () => resolve(rowData));
+            res.on('error', reject);
+        })
+        counter_post.end()
+    });
+
+    //--------------------------------------------------
+
+
+    res.render("view", {
+        catalog: catalog[idx],
+        title: "Просмотр - "+catalog[idx].title,
+        iconpage: "bi bi-eye",
+        counter: counter_book_result
+    });
     
 });
 
@@ -221,7 +237,7 @@ router.get('/edit/:id', function (req, res) {
         catalog: catalog[idx],
         title: "Просмотр - "+catalog[idx].title,
         iconpage:"bi bi-pencil-square",
-        counter: counter_book_result
+        counter: "none"
     });
     
 });

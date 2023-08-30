@@ -16,7 +16,7 @@ const client = redis.createClient({url: REDIS_URL});
 
 // Первая страница
 app.get('/',function (req, res) {
-    res.json('Work / ')
+    res.json('Counter work , use library ')
 })
 
 // Результат по id
@@ -25,23 +25,37 @@ app.get('/counter/:bookId', async function (req, res) {
     
     try {
         const cnt = await client.get(bookId)
-        res.json(`Counter ${bookId} is ${cnt}`)
+        res.json({cnt})
     }catch(error){
         res.json(error)
     }
 })
 
-// Результат по id + добавление
-app.get('/counter/:bookId/incr', async function (req, res) {
+//  Добавление POST
+app.post('/counter/:bookId/incr', async function (req, res) {
     const {bookId} = req.params
     
     try {
         const cnt = await client.incr(bookId)
-        res.json(`Counter ${bookId} is ${cnt}`)
+        res.json({cnt})
     } catch (error) {
         res.json(error)
     }
 })
+
+//  Добавление GET
+app.get('/add/:bookId/incr', async function (req, res) {
+    const {bookId} = req.params
+    
+    try {
+        const cnt = await client.incr(bookId)
+        res.json({cnt})
+    } catch (error) {
+        res.json(error)
+    }
+})
+
+
 
 
 // Ошибка 404
@@ -51,6 +65,6 @@ app.use(function(req, res, cb) {
 });
 
 app.listen(PORT, function(req, res){
-    console.log('Counter work at ', 'http://localhost:'+PORT,PORT)
+    console.log('Counter listen port', 'http://localhost:'+PORT,PORT)
 })
 
