@@ -5,9 +5,11 @@
 Группа *NDJS-23*
 
 **Домашнее задание «2.7. Подключение MongoDB в Node.js приложение**
-*Запуск:* npm run library
+*Запуск docker* docker-compose up
+*Запуск приложение* npm run library
 
-*Посмотреть шаблон* npm run tmp
+
+
 
 
 
