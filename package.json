@@ -1,0 +1,21 @@
+{
+  "name": "evlanov-netology-librarry-router",
+  "version": "1.0.0",
+  "description": "Lern express.js",
+  "main": "index.js",
+  "scripts": {
+    "library": "node index.js",
+    "dev": "nodemon -L"
+  },
+  "author": "Evlanov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "multer": "^1.4.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
