@@ -39,9 +39,8 @@ async function start(PORT, urlDB) {
 }
 
 const PORT = 3000
-const urlDB = 'mongodb://root:example@localhost:27017/db?authSource=admin';
-
-// mongodb://username:password@localhost:27017/db
+const urlDB = 'mongodb://root:example@mongo:27017/db?authSource=admin';
+// mongodb://root:example@localhost:27017/db?authSource=admin
 
 start(PORT, urlDB)
 
