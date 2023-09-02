@@ -6,9 +6,15 @@
 
 **Домашнее задание «2.7. Подключение MongoDB в Node.js приложение**
 
-*Запуск docker* docker-compose up
+**Запуск docker** 
+```
+docker-compose up
+```
 
-*Запуск приложение* npm run library
+**Запуск приложение** 
+```
+npm run library
+```
 
 
 
