@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { v4: uuid } = require('uuid')
 const fs = require ('fs')
-const library = require('../models/book')
+const books = require('../models/books')
 
 
 
@@ -10,8 +10,8 @@ const library = require('../models/book')
 router.get('/api/books', async function(req, res){
     
     try {
-        const lib = await library.find().select('-__v')
-        res.json(lib)
+        const book = await books.find().select('-__v')
+        res.json(book)
     } catch (error) {
         res.status(500).json(error)
     }
@@ -22,8 +22,7 @@ router.get('/api/books', async function(req, res){
 // /api/new Для теста
 
 router.get('/api/new', async function(req, res) {
-    const newBook = new library({
-        id: uuid(),
+    const testBook = new books({
         title: 'Война и мир',
         description: 'Роман-эпопея Льва Толстого, описывающий жизнь русского общества в эпоху Наполеоновских войн.',
         authors: 'Лев Толстой',
@@ -33,8 +32,8 @@ router.get('/api/new', async function(req, res) {
     });
 
     try {
-        await newBook.save();
-        res.json(newBook);
+        await testBook.save();
+        res.json(testBook);
     } catch (error) {
         res.status(500).json(error);
     }
@@ -46,12 +45,10 @@ router.get('/api/new', async function(req, res) {
 // Получить книгу по ID	Получаем объект книги, если запись не найдена, вернём Code: 404
 router.get('/api/books/:id', async function(req, res){
     const {id} = req.params
-
     
-    res.json(`Получить книгу по ID:${id}`)
-
     try {
-        
+        const book = await books.findById(id).select('-__v')
+        res.json(book)
     } catch (error) {
         res.status(500).json(error)
     }
@@ -60,10 +57,12 @@ router.get('/api/books/:id', async function(req, res){
 
 // Создать книгу	Создаём книгу и возвращаем её же вместе с присвоенным ID
 router.post('/api/books', async function(req, res){
-
-    res.json('Создать книгу')
+    const {title, description, authors, favorite, fileCover, fileName} = req.body
+    const book = new books({title, description, authors, favorite, fileCover, fileName})
         
     try {
+        await book.save();
+        res.json(book)
         
     } catch (error) {
         res.status(500).json(error)
@@ -74,28 +73,34 @@ router.post('/api/books', async function(req, res){
 // Редактировать книгу по ID	Редактируем объект книги, если запись не найдена, вернём Code: 404
 router.put('/api/books/:id', async function(req, res){
     const {id} = req.params
+    const {title, description, authors, favorite, fileCover, fileName} = req.body
 
-    console.log('Редактировать книгу по ID', id)
+    
     res.json(`Редактировать книгу по ID:${id}`)
 
     try {
-        
+        await books.findByIdAndUpdate(id, {title, description, authors, favorite, fileCover, fileName})
+        res.redirect(`/api/books/${id}`)
+
     } catch (error) {
         res.status(500).json(error)
     }
+    console.log('Редактировать книгу по ID', id)
 })
 
 // Удалить книгу по ID	Удаляем книгу и возвращаем ответ: ok
 router.delete('/api/books/:id', async function(req, res){
     const {id} = req.params
-    console.log('Удалить книгу по ID')
-    res.json(`Удалить книгу по ID: ${id}`)
-        
+    
+   
+    
     try {
-        
+        await books.deleteOne(id)
+        res.json(true)
     } catch (error) {
         res.status(500).json(error)
     }
+    console.log('Удалить книгу по ID')
 })
 
 module.exports = router

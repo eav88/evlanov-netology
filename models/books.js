@@ -2,11 +2,6 @@ const { Schema, model } = require('mongoose')
 const { v4: uuid } = require('uuid')
 const booksSchema = new Schema({
 
-    id: {
-        type: String,
-        default: "id",
-    },
-
     title:{
         type: String,
         required: true,
@@ -40,8 +35,6 @@ const booksSchema = new Schema({
         default: "fileName",
     },
 })
-
-
 
 module.exports = model('library', booksSchema)
 
