@@ -1,0 +1,37 @@
+<%- include('block/head') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-1 my-5 text-center"><%= title %></h1>
+
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form action="/api/user/login" method="post">
+                <div class="mb-3">
+                  <label for="loginu" class="form-label">Логин</label>
+                  <input type="text" class="form-control" id="loginu" name="username">
+                </div>
+                <div class="mb-3">
+                  <label for="passwordu" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="passwordu" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Войти</button>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+
+
+
+
+<%- include('block/footer') %>

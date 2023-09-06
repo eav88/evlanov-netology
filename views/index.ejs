@@ -1,0 +1,35 @@
+<%- include('block/head') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-1 my-5 text-center"><%= title %></h1>
+
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center">
+            <% if (!user) { %>
+                <a class="btn btn-success" href="/api/user/login"> Войти </a>
+            <% } else { %>
+                <h2 class="display-3 my-5"> Hi, <span class="text-info"><%= user.username %></span></h2>
+                <hr>
+                <div class="my-2"><a class="btn btn-success w-50" href="/api/user/me"> Профиль </a></div>
+                <div class="my-2"><a class="btn btn-outline-danger w-50" href="/api/user/logout"> Выйти </a></div>
+                
+            <% } %>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+
+
+<%- include('block/footer') %>

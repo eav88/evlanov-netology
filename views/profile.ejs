@@ -1,0 +1,31 @@
+<%- include('block/head') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="display-1 my-5 text-center"><%= title %></h1>
+
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <p><span class="text-uppercase fw-bold">ID:</span> <%= user.id %></p>
+            <p><span class="text-uppercase fw-bold">Username:</span> <%= user.username %><br /></p>
+            <p><span class="text-uppercase fw-bold">Name:</span> <%= user.displayName %><br /></p>
+            <p><span class="text-uppercase fw-bold">Email:</span> <%= user.emails %><br /></p>
+            <a class="btn btn-outline-danger" href="/api/user/logout">Выйти</a>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+
+
+<%- include('block/footer') %>
