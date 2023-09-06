@@ -4,7 +4,7 @@
   "description": "**Репозиторий для сдачи домашней работы**",
   "main": "index.js",
   "scripts": {
-    "passport": "node index.js",
+    "start": "node index.js",
     "dev": "nodemon -L"
   },
   "author": "",
