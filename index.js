@@ -40,7 +40,8 @@ const app = express()
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded());
-app.use(session({ secret: 'SECRET'}));
+// app.use(session({ secret: 'SECRET'}));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -81,18 +82,15 @@ app.post('/api/user/login',
 })
 
 
-// Появляется ошибка
-app.get('/api/user/logout', function (req, res) {
-    req.logout();
-    res.redirect('/');
-})
+// GET /api/user/logout
+app.get('/api/user/logout', function(req, res, next) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+});
 
 
-// // POST /api/user/signup
-// app.post('/api/user/signup',function (req,res) {
-//     console.log('/api/user/signup')
-//     res.json('/api/user/signup')
-// })
 
 const PORT = 3000;
 
